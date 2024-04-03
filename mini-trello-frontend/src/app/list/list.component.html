@@ -1,0 +1,21 @@
+<div class="list">
+  <div class="list-header">
+    <h3>{{ list.title }}</h3>
+    <button (click)="deleteList()">Delete List</button>
+  </div>
+  <div class="card-container">
+    <app-card
+      *ngFor="let card of list.cards"
+      [card]="card"
+      (cardDeleted)="deleteCard($event)"
+    ></app-card>
+  </div>
+  <div class="add-card">
+    <input
+      type="text"
+      [(ngModel)]="newCardTitle"
+      placeholder="Enter card title"
+    />
+    <button (click)="addCard()">Add Card</button>
+  </div>
+</div>
